@@ -1,0 +1,14 @@
+1. All events search
+index=*
+
+2. Failed login events
+index=* EventCode=4625
+
+3. Failed login count
+index=* EventCode=4625 | stats count as "Failed Login Count"
+
+4. Failed login by user & host
+index=* EventCode=4625 | table TargetUserName Account_Name host
+
+5. Login trend over time
+index=* EventCode=4625 | timechart count
